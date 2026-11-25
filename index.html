@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arlindo César Matias Pereira Filho</title>
+  <meta name="description" content="Postdoctoral researcher in neuropsychopharmacology and bioinformatics at FCFRP-USP, studying chemotherapy-induced cognitive impairment (chemobrain).">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,750&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #F3F6F5;
+      --ink: #1B2A3A;
+      --slate: #586878;
+      --rule: #D3DADD;
+      --up: #B3245B;      /* upregulated */
+      --down: #1F7A8C;    /* downregulated */
+      --ns: #A9B4BC;      /* not significant */
+      --measure: 66ch;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Literata", Georgia, serif;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+    }
+    a { color: var(--down); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+    a:hover { color: var(--up); }
+    a:focus-visible { outline: 2px solid var(--up); outline-offset: 3px; border-radius: 2px; }
+
+    h1, h2, h3, nav, .tools, .when {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    }
+
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* Navigation */
+    nav { padding: 1.25rem 0; font-size: 0.95rem; }
+    nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; }
+    nav a { color: var(--slate); text-decoration: none; }
+    nav a:hover { color: var(--ink); }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      padding: 3.5rem 0 4rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5.5vw, 4.1rem);
+      font-weight: 750;
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      margin: 0 0 1.25rem;
+    }
+    .hero .lede { font-size: 1.2rem; max-width: 34ch; margin: 0 0 1.5rem; }
+    .hero .where { color: var(--slate); margin: 0; font-size: 0.98rem; }
+
+    figure.volcano { margin: 0; }
+    figure.volcano svg { width: 100%; height: auto; display: block; }
+    figure.volcano figcaption { font-size: 0.85rem; color: var(--slate); margin-top: 0.5rem; max-width: 46ch; }
+    .axis { stroke: var(--ink); stroke-width: 1; }
+    .thresh { stroke: var(--slate); stroke-width: 0.75; stroke-dasharray: 3 4; }
+    .axis-label { font: 500 11px "Bricolage Grotesque", sans-serif; fill: var(--slate); }
+
+    /* Sections */
+    section { padding: 3.5rem 0; border-bottom: 1px solid var(--rule); }
+    section:last-of-type { border-bottom: 0; }
+    .cols { display: grid; grid-template-columns: 220px 1fr; gap: 2rem; }
+    h2 { font-size: 1.6rem; font-weight: 600; letter-spacing: -0.01em; margin: 0; line-height: 1.2; }
+    .body { max-width: var(--measure); }
+    .body p { margin: 0 0 1rem; }
+    .body p:last-child { margin-bottom: 0; }
+
+    /* Projects */
+    .projects { list-style: none; margin: 0; padding: 0; }
+    .projects li { padding: 1.25rem 0; border-top: 1px solid var(--rule); }
+    .projects li:first-child { border-top: 0; padding-top: 0; }
+    .projects h3 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.35rem; }
+    .projects h3 a { color: var(--ink); text-decoration: none; border-bottom: 2px solid var(--down); }
+    .projects h3 a:hover { border-color: var(--up); }
+    .projects p { margin: 0 0 0.4rem; }
+    .tools { font-size: 0.88rem; color: var(--slate); margin: 0; }
+    .status { font-family: "Bricolage Grotesque", sans-serif; font-size: 0.85rem; font-weight: 400; color: var(--slate); margin-left: 0.4rem; }
+
+    /* Education timeline (a real sequence) */
+    .timeline { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--rule); }
+    .timeline li { position: relative; padding: 0 0 1.5rem 1.5rem; }
+    .timeline li:last-child { padding-bottom: 0; }
+    .timeline li::before {
+      content: ""; position: absolute; left: -7px; top: 0.55em;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--paper); border: 2px solid var(--down);
+    }
+    .timeline li:first-child::before { background: var(--up); border-color: var(--up); }
+    .when { font-size: 0.88rem; color: var(--slate); display: block; }
+    .timeline strong { font-weight: 600; }
+
+    .contact-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; }
+
+    footer { padding: 2rem 0 3rem; color: var(--slate); font-size: 0.85rem; }
+
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; padding-top: 2rem; gap: 2rem; }
+      .cols { grid-template-columns: 1fr; gap: 1rem; }
+    }
+
+    /* One orchestrated moment: the volcano plot points settle in on load */
+    .pt { opacity: 0; transition: opacity 0.6s ease; }
+    .ready .pt { opacity: 1; }
+    @media (prefers-reduced-motion: reduce) {
+      .pt { opacity: 1; transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <h1>Arlindo César Matias Pereira Filho</h1>
+        <p class="lede">I study how chemotherapy changes the brain, from behaviour in the lab to gene expression data on the screen.</p>
+        <p class="where">Postdoctoral researcher, Laboratory of Neuropsychopharmacology<br>School of Pharmaceutical Sciences of Ribeirão Preto, University of São Paulo</p>
+      </div>
+      <figure class="volcano">
+        <svg id="volcano" viewBox="0 0 420 320" role="img" aria-labelledby="volcano-title">
+          <title id="volcano-title">Stylised volcano plot of differential gene expression, with upregulated genes in magenta and downregulated genes in teal</title>
+        </svg>
+        <figcaption>Differential expression after chemotherapy, the kind of result this work starts from. Illustrative data.</figcaption>
+      </figure>
+    </header>
+
+    <main>
+      <section id="about">
+        <div class="cols">
+          <h2>About</h2>
+          <div class="body">
+            <p>I am a pharmacologist working across the wet lab, computational analysis and clinical research. My main question is why many patients develop memory and attention problems during and after cancer treatment, a condition known as chemotherapy-related cognitive impairment, or chemobrain.</p>
+            <p>My postdoctoral project at FCFRP-USP, supervised by Prof. Sabrina F. de Sousa Lisboa, uses omics analyses to map the molecular changes behind chemobrain. It is part of an international collaboration with Aarhus University, Denmark.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="research">
+        <div class="cols">
+          <h2>Research</h2>
+          <div class="body">
+            <p><strong>Chemobrain mechanisms.</strong> Transcriptomic and other omics analyses of brain tissue after chemotherapy, aiming to identify pathways that link treatment to cognitive decline.</p>
+            <p><strong>Cannabinoids and cognition.</strong> My PhD tested cannabidiol (CBD) as a way to prevent cognitive deficits caused by chemotherapy in animal models.</p>
+            <p><strong>Computational pharmacology.</strong> Reproducible pipelines for RNA-seq, genomics and phylogenetics, molecular docking, and machine learning for behavioural analysis.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="cols">
+          <h2>Projects</h2>
+          <ul class="projects body">
+            <li>
+              <h3><a href="https://github.com/arlindomatias/bulk-rna-seq">bulk-rna-seq</a></h3>
+              <p>End-to-end bulk RNA-seq analysis of a public mouse chemotherapy dataset (GSE178812): differential expression, protein interaction networks and pathway enrichment, run as a single Make pipeline.</p>
+              <p class="tools">R, DESeq2, STRINGdb, clusterProfiler, GNU Make</p>
+            </li>
+            <li>
+              <h3><a href="https://github.com/arlindomatias/phylo-16s-pilot">phylo-16s-pilot</a></h3>
+              <p>Phylogenetic trees built from public bacterial 16S barcoding sequences downloaded from NCBI GenBank.</p>
+              <p class="tools">Snakemake, NCBI Entrez, multiple sequence alignment</p>
+            </li>
+            <li>
+              <h3><a href="https://github.com/arlindomatias/projects">Variant calling pipeline</a></h3>
+              <p>From raw reads (FASTQ) to variants (VCF), tested on the Genome in a Bottle HG002 sample, chromosome 20.</p>
+              <p class="tools">Snakemake, Bash, conda</p>
+            </li>
+            <li>
+              <h3>Seizure quantification in zebrafish <span class="status">in progress</span></h3>
+              <p>Markerless pose estimation to quantify seizure behaviour in adult zebrafish, validated against manual scoring.</p>
+              <p class="tools">DeepLabCut, Python, PyTorch</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="education">
+        <div class="cols">
+          <h2>Education</h2>
+          <ol class="timeline body" reversed>
+            <!-- TODO: add years to each entry -->
+            <li><span class="when">2026 to present</span><strong>Postdoctoral research</strong>, Laboratory of Neuropsychopharmacology, FCFRP-USP</li>
+            <li><span class="when">PhD</span><strong>Pharmaceutical Sciences</strong>, University of São Paulo, Ribeirão Preto. Thesis on cannabidiol against chemotherapy-induced cognitive deficits.</li>
+            <li><span class="when">MSc</span>Federal University of Amapá (UNIFAP), Macapá</li>
+            <li><span class="when">BSc</span>Federal University of Amapá (UNIFAP), Macapá</li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="cols">
+          <h2>Contact</h2>
+          <div class="body">
+            <ul class="contact-list">
+              <!-- TODO: replace the placeholder links below -->
+              <li><a href="mailto:your.email@usp.br">Email</a></li>
+              <li><a href="https://github.com/arlindomatias">GitHub</a></li>
+              <li><a href="https://orcid.org/0000-0000-0000-0000">ORCID</a></li>
+              <li><a href="http://lattes.cnpq.br/0000000000000000">Lattes</a></li>
+              <li><a href="https://scholar.google.com/">Google Scholar</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>© 2026 Arlindo César Matias Pereira Filho</footer>
+  </div>
+
+  <script>
+    // Deterministic, illustrative volcano plot (not real data).
+    (function () {
+      var svg = document.getElementById('volcano');
+      var NS = 'http://www.w3.org/2000/svg';
+      var W = 420, H = 320, L = 34, B = 290, T = 10, R = 410;
+      var seed = 178812;
+      function rand() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
+      function gauss() { return Math.sqrt(-2 * Math.log(rand() + 1e-9)) * Math.cos(2 * Math.PI * rand()); }
+      function el(name, attrs) {
+        var e = document.createElementNS(NS, name);
+        for (var k in attrs) e.setAttribute(k, attrs[k]);
+        svg.appendChild(e); return e;
+      }
+      var xMax = 4, yMax = 12;
+      function sx(v) { return L + (v + xMax) / (2 * xMax) * (R - L); }
+      function sy(v) { return B - v / yMax * (B - T); }
+
+      // thresholds: |log2FC| > 0.5, -log10(padj) > 1.3
+      el('line', { x1: sx(-0.5), x2: sx(-0.5), y1: T, y2: B, 'class': 'thresh' });
+      el('line', { x1: sx(0.5), x2: sx(0.5), y1: T, y2: B, 'class': 'thresh' });
+      el('line', { x1: L, x2: R, y1: sy(1.3), y2: sy(1.3), 'class': 'thresh' });
+
+      var pts = [];
+      for (var i = 0; i < 520; i++) {
+        var fc = gauss() * 0.9;
+        var p = Math.abs(fc) * (1.2 + rand() * 1.6) + Math.abs(gauss()) * 0.6;
+        if (Math.abs(fc) > xMax - 0.1) fc = Math.sign(fc) * (xMax - 0.1 - rand() * 0.3);
+        p = Math.min(p, yMax - 0.3);
+        pts.push([fc, p]);
+      }
+      pts.sort(function (a, b) { return a[1] - b[1]; });
+      pts.forEach(function (d, i) {
+        var sig = d[1] > 1.3 && Math.abs(d[0]) > 0.5;
+        var color = !sig ? 'var(--ns)' : d[0] > 0 ? 'var(--up)' : 'var(--down)';
+        var c = el('circle', {
+          cx: sx(d[0]).toFixed(1), cy: sy(d[1]).toFixed(1),
+          r: sig ? 3.4 : 2.3, fill: color, 'fill-opacity': sig ? 0.9 : 0.55, 'class': 'pt'
+        });
+        c.style.transitionDelay = (d[1] / yMax * 900).toFixed(0) + 'ms';
+      });
+
+      el('line', { x1: L, x2: R, y1: B, y2: B, 'class': 'axis' });
+      el('line', { x1: L, x2: L, y1: T, y2: B, 'class': 'axis' });
+      var xl = el('text', { x: (L + R) / 2, y: H - 6, 'text-anchor': 'middle', 'class': 'axis-label' });
+      xl.textContent = 'log2 fold change';
+      var yl = el('text', { x: 12, y: (T + B) / 2, 'text-anchor': 'middle', 'class': 'axis-label',
+        transform: 'rotate(-90 12 ' + (T + B) / 2 + ')' });
+      yl.textContent = '−log10 adjusted p';
+
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { svg.classList.add('ready'); });
+      });
+    })();
+  </script>
+</body>
+</html>
