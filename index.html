@@ -89,6 +89,9 @@
     .projects h3 a:hover { border-color: var(--up); }
     .projects p { margin: 0 0 0.4rem; }
     .tools { font-size: 0.88rem; color: var(--slate); margin: 0; }
+    .reports { font-size: 0.88rem; margin: 0.2rem 0 0; }
+    h3.group { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--slate); margin: 0 0 1rem; }
+    .projects + h3.group { margin-top: 2.5rem; }
     .status { font-family: "Bricolage Grotesque", sans-serif; font-size: 0.85rem; font-weight: 400; color: var(--slate); margin-left: 0.4rem; }
 
     /* Education timeline (a real sequence) */
@@ -164,7 +167,7 @@
           <div class="body">
             <p><strong>Chemobrain mechanisms.</strong> Transcriptomic and other omics analyses of brain tissue after chemotherapy, aiming to identify pathways that link treatment to cognitive decline.</p>
             <p><strong>Cannabinoids and cognition.</strong> My PhD tested cannabidiol (CBD) as a way to prevent cognitive deficits caused by chemotherapy in animal models.</p>
-            <p><strong>Computational pharmacology.</strong> Reproducible pipelines for RNA-seq, genomics and phylogenetics, molecular docking, and machine learning for behavioural analysis.</p>
+            <p><strong>Computational pharmacology.</strong> Reproducible Snakemake pipelines for bulk, single-cell and spatial transcriptomics, proteomics, microbiome, variant calling and phylogenetics, each ending in a published HTML report; machine learning for gene expression and behavioural analysis.</p>
           </div>
         </div>
       </section>
@@ -172,28 +175,77 @@
       <section id="projects">
         <div class="cols">
           <h2>Projects</h2>
-          <ul class="projects body">
-            <li>
-              <h3><a href="https://github.com/arlindomatias/bulk-rna-seq">bulk-rna-seq</a></h3>
-              <p>End-to-end bulk RNA-seq analysis of a public mouse chemotherapy dataset (GSE178812): differential expression, protein interaction networks and pathway enrichment, run as a single Make pipeline.</p>
-              <p class="tools">R, DESeq2, STRINGdb, clusterProfiler, GNU Make</p>
-            </li>
-            <li>
-              <h3><a href="https://github.com/arlindomatias/phylo-16s-pilot">phylo-16s-pilot</a></h3>
-              <p>Phylogenetic trees built from public bacterial 16S barcoding sequences downloaded from NCBI GenBank.</p>
-              <p class="tools">Snakemake, NCBI Entrez, multiple sequence alignment</p>
-            </li>
-            <li>
-              <h3><a href="https://github.com/arlindomatias/projects">Variant calling pipeline</a></h3>
-              <p>From raw reads (FASTQ) to variants (VCF), tested on the Genome in a Bottle HG002 sample, chromosome 20.</p>
-              <p class="tools">Snakemake, Bash, conda</p>
-            </li>
-            <li>
-              <h3>Seizure quantification in zebrafish <span class="status">in progress</span></h3>
-              <p>Markerless pose estimation to quantify seizure behaviour in adult zebrafish, validated against manual scoring.</p>
-              <p class="tools">DeepLabCut, Python, PyTorch</p>
-            </li>
-          </ul>
+          <div class="body">
+            <h3 class="group">Chemotherapy and the brain: multi-omics</h3>
+            <ul class="projects">
+              <li>
+                <h3><a href="https://github.com/arlindomatias/bulk-rna-seq">Bulk RNA-seq</a></h3>
+                <p>Five public rodent datasets on chemotherapy and the brain, from raw SRA reads to differential expression, pathway enrichment and protein interaction networks, combined in a cross-species meta-analysis.</p>
+                <p class="tools">Snakemake, R, Salmon, DESeq2, limma, clusterProfiler, STRINGdb</p>
+                <p class="reports">Reports: <a href="https://arlindomatias.github.io/bulk-rna-seq/raw_reads_processing/reports/report.html">raw reads</a>, <a href="https://arlindomatias.github.io/bulk-rna-seq/bulk_rna_seq_tximport/reports/report.html">GSE295281</a>, <a href="https://arlindomatias.github.io/bulk-rna-seq/analysis_from_geo_data/GSE178812/reports/report.html">GSE178812</a>, <a href="https://arlindomatias.github.io/bulk-rna-seq/analysis_from_geo_data/GSE236404/reports/report.html">GSE236404</a>, <a href="https://arlindomatias.github.io/bulk-rna-seq/analysis_from_geo_data/GSE267844/reports/report.html">GSE267844</a>, <a href="https://arlindomatias.github.io/bulk-rna-seq/analysis_from_geo_data/GSE325554/reports/report.html">GSE325554</a>, <a href="https://arlindomatias.github.io/bulk-rna-seq/analysis_from_geo_data/GSE216146/reports/report.html">GSE216146</a>, <a href="https://arlindomatias.github.io/bulk-rna-seq/meta_analysis/reports/report.html">meta-analysis</a></p>
+              </li>
+              <li>
+                <h3><a href="https://github.com/arlindomatias/single-cell-rna-seq">Single-cell RNA-seq</a></h3>
+                <p>Cisplatin vs control mouse brain: cell-type annotation, composition, pseudobulk differential expression, senescence scores, cell–cell communication and RNA velocity of oligodendrocyte maturation.</p>
+                <p class="tools">Python, Scanpy, CellTypist, LIANA+, scVelo</p>
+              </li>
+              <li>
+                <h3><a href="https://github.com/arlindomatias/spatial-transcriptomics">Spatial transcriptomics</a></h3>
+                <p>10x Visium sections of the paclitaxel-treated mouse brain: anatomical domains, spatially variable genes, cell-type and senescence maps, niches and hotspots.</p>
+                <p class="tools">Snakemake, Python, Scanpy, Squidpy</p>
+                <p class="reports">Reports: <a href="https://arlindomatias.github.io/spatial-transcriptomics/GSE325554/reports/report.html">GSE325554</a></p>
+              </li>
+              <li>
+                <h3><a href="https://github.com/arlindomatias/proteomics">Proteomics</a></h3>
+                <p>Independent re-analysis of the mouse hippocampal proteome after AC-T chemotherapy (McElroy et al. 2020), from published iBAQ intensities to differential abundance and enrichment.</p>
+                <p class="tools">Snakemake, R, limma</p>
+                <p class="reports">Reports: <a href="https://arlindomatias.github.io/proteomics/reports/report.html">hippocampal proteome</a></p>
+              </li>
+              <li>
+                <h3><a href="https://github.com/arlindomatias/microarray">Microarray</a></h3>
+                <p>Peripheral blood leukocytes of mice after cyclophosphamide, analysed from two-colour arrays.</p>
+                <p class="tools">Snakemake, R, limma</p>
+                <p class="reports">Reports: <a href="https://arlindomatias.github.io/microarray/GSE27422/reports/report.html">GSE27422</a></p>
+              </li>
+              <li>
+                <h3><a href="https://github.com/arlindomatias/micro-rna-seq">Plasma microRNA</a></h3>
+                <p>Circulating miRNAs in colorectal cancer patients on FOLFOX, related to chemotherapy-induced neuropathy.</p>
+                <p class="tools">Snakemake, R, edgeR</p>
+                <p class="reports">Reports: <a href="https://arlindomatias.github.io/micro-rna-seq/GSE260661/reports/report.html">GSE260661</a></p>
+              </li>
+              <li>
+                <h3><a href="https://github.com/arlindomatias/microbiome">Gut microbiome</a></h3>
+                <p>16S rRNA amplicon analyses of paclitaxel-treated rats and of breast cancer patients with paclitaxel-induced neuropathy.</p>
+                <p class="tools">Snakemake, R, DADA2, phyloseq, ANCOM-BC2</p>
+                <p class="reports">Reports: <a href="https://arlindomatias.github.io/microbiome/ptx_rats_emtab13426/reports/report.html">rats</a>, <a href="https://arlindomatias.github.io/microbiome/ptx_patients_emtab13423/reports/report.html">patients</a></p>
+              </li>
+            </ul>
+            <h3 class="group">Methods and other analyses</h3>
+            <ul class="projects">
+              <li>
+                <h3><a href="https://github.com/arlindomatias/giab-variant-pipeline">Germline variant calling</a></h3>
+                <p>From FASTQ to VCF on the Genome in a Bottle HG002 sample, comparing bcftools, GATK and DeepVariant against the truth set.</p>
+                <p class="tools">Snakemake, BWA, GATK, DeepVariant, rtg vcfeval</p>
+                <p class="reports">Reports: <a href="https://arlindomatias.github.io/giab-variant-pipeline/reports/HG002_report.html">HG002</a></p>
+              </li>
+              <li>
+                <h3><a href="https://github.com/arlindomatias/machine-learning">Machine learning</a></h3>
+                <p>Tumour vs normal classification of TCGA breast cancer RNA-seq with twelve models, plus clustering and pathway enrichment.</p>
+                <p class="tools">Snakemake, R, glmnet, randomForest, xgboost, e1071, pamr</p>
+                <p class="reports">Reports: <a href="https://arlindomatias.github.io/machine-learning/brca_tumor_normal_classification/reports/report.html">TCGA-BRCA</a></p>
+              </li>
+              <li>
+                <h3><a href="https://github.com/arlindomatias/phylogenetic-analysis">Phylogenetics</a></h3>
+                <p>Core-gene phylogeny of 138 herpesvirus genomes, tested against the ICTV taxonomy, with a focus on viruses linked to cognitive decline.</p>
+                <p class="tools">Snakemake, NCBI Virus, multiple sequence alignment</p>
+              </li>
+              <li>
+                <h3>Seizure quantification in zebrafish <span class="status">in progress</span></h3>
+                <p>Markerless pose estimation to quantify seizure behaviour in adult zebrafish, validated against manual scoring.</p>
+                <p class="tools">DeepLabCut, Python, PyTorch</p>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 

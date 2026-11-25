@@ -10,4 +10,4 @@ Personal academic website of Arlindo César Matias Pereira Filho, published with
 
 Edit `index.html` and push to `main`. GitHub Pages republishes the site in about a minute.
 
-Items still to fill in are marked with `TODO` comments (degree years, email, ORCID, Lattes and Google Scholar links).
+Projects are grouped into chemotherapy multi-omics and methods; each links to its repository and published reports. Items still to fill in are marked with `TODO` comments (degree years, email, ORCID, Lattes and Google Scholar links).
